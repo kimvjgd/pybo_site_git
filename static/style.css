@@ -5,3 +5,9 @@ input[type="submit"] {
   /* 선택자 submit*/
 /* margin-top: 10px; */
 /* } */
+
+.jumbotron {
+  background-image: url("https://source.unsplash.com/random");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
