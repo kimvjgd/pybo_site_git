@@ -11,3 +11,13 @@ input[type="submit"] {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.login-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.avarta-sm {
+  width: 20px;
+}

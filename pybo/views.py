@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
 
+from config.settings import LOGIN_REDIRECT_URL
+
 from .models import Question, Answer
 from django.utils import timezone
 from .forms import QuestionForm, AnswerForm
@@ -74,3 +76,17 @@ def question_create(request):
   context = {'form':form}
   return render(request, 'pybo/question_form.html', context)
 
+
+# def login(request): 
+#   """
+#   pybo 질문등록
+#   """
+#   if request.method == 'POST':
+#     form = LoginForm(request.POST)
+#     if form.is_valid():    # 유효성 검사
+
+#       return redirect(LOGIN_REDIRECT_URL)
+#   else:
+#     form = LoginForm()
+#   context = {'form':form}
+#   return render(request, 'pybo/question_form.html', context)
