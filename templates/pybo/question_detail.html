@@ -38,7 +38,12 @@
 <form action="{% url 'pybo:answer_create' question.id%}" method="post" class="my-3">
   {% csrf_token %} {%include 'error/form_error.html' %}
   <div class="form-group">
-    <textarea name="content" id="content" class="form-control" rows="10"></textarea>
+    <textarea {% if not user.is_authenticated %}disabled{% endif %}
+      name="content"
+      id="content"
+      class="form-control"
+      rows="10"
+    ></textarea>
   </div>
   <!-- <input type="submit" value="답변등록" />  이렇게로는 아이콘 못 넣는다.-->
   <button type="submit" class="btn btn-primary">
