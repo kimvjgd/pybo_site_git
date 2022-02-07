@@ -1,15 +1,16 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %}
 
-{% block content %}
-<div class="container my-3">
-    <form action="post" class="post-form">
-        {% csrf_token %}
-        {% include "error/form_error.html" %}
-        <div class="form-group">
-            <label for="content">답변내용</label>
-            <textarea name="content" id="content" rows="10" class="form-control">{{ form.content.value|default_if_none:'' }}</textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">저장하기</button>
-    </form>
-</div>
+<form action="post" class="post-form">
+  {% csrf_token %} {% include "error/form_error.html" %}
+  <div class="form-group">
+    <label for="content">답변내용</label>
+    <textarea name="content" id="content" rows="10" class="form-control">
+{{ form.content.value|default_if_none:'' }}</textarea
+    >
+  </div>
+  <button type="submit" class="btn btn-primary">저장하기</button>
+  <a class="btn btn-primary" href="javascript:history.back()"><i class="fas fa-undo"></i>돌아가기</a>
+</form>
+
 {% endblock %}
+
