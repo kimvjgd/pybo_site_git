@@ -14,7 +14,7 @@ def answer_create(request, question_id):
     """
     pybo 답변등록
     """
-        # 방법 1
+    # 방법 1
     question = get_object_or_404(Question, pk=question_id) 
     if request.method == "POST":
       form = AnswerForm(request.POST) 
@@ -29,6 +29,18 @@ def answer_create(request, question_id):
       form = AnswerForm()
     context = {'question': question, 'form': form}
     return render(request, 'pybo/question_detail.html', context)
+
+      # 방법 1]
+      # answer = Anser(question = question,
+      #                content = content,
+      #                create_date = timezone.now())
+      # answer.save()
+
+
+      # 방법 2] ForeignKey 관계인 경우
+      # question.answer_set.create(content=request.POST.get('content'), create_date=timezone.now())
+      # return redirect('pybo:detail',question_id=question_id)
+      # return redirect('pybo:detail',question_id=question_id)
 
 
 @login_required(login_url='common:login')
@@ -55,10 +67,7 @@ def answer_modify(request, answer_id):
 
 
 
-        # 방법 2] ForeignKey 관계인 경우
-      # question.answer_set.create(content=request.POST.get('content'), create_date=timezone.now())
-      # return redirect('pybo:detail',question_id=question_id)
-      # return redirect('pybo:detail',question_id=question_id)
+
 
 
 
